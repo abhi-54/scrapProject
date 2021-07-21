@@ -1,0 +1,16 @@
+{% load static %}
+<html>
+<head>
+  <title>Layout</title>
+  <link rel = "stylesheet" href = "{% static '/css/style.css' %}">
+</head>
+<body style="background-color: #0d2d5c; color: rgb(220, 220, 220);">
+  <div class="left1"></div>
+  <div class="content1">
+    {% block content %}
+    
+    {% endblock %}
+  </div>
+  <div class="right1"></div>
+</body>
+</html>

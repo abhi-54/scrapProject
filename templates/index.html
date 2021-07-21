@@ -1,0 +1,47 @@
+{% load static %}
+<html>
+<head>
+  <title>Home</title>
+  <link rel = "stylesheet" href = "{% static '/css/style.css' %}">
+  <style>
+    a {text-decoration: none; color: rgb(220, 220, 220);}
+    a:hover {text-decoration: underline; color: rgb(220, 220, 220);}
+    input[type=text] {background-color: transparent; color: rgb(220, 220, 220); width: 250px;}
+    input {border-radius: 5px; border-color: royalblue;}
+  </style>
+</head>
+<body style="background-color: #0d2d5c; color: rgb(220, 220, 220);"> 
+  <div class="top1">
+    <h1>Web Scrapping</h1>
+  </div>
+
+  <div class="left1"></div>
+
+  <div class="content1">
+    <div>
+    <form method="post">
+      {% csrf_token %}
+      <label>Enter Company Name: </label>
+      <input name="company_name" type="text" required>
+      <br><br>
+      <button name="submit" type="submit" id="submitbtn">Submit</button>
+      <br>
+    </div>
+    </form>
+    <div class="displayContent" id="displaycontent">
+      <p id="displayCompanyName">You have entered: {{companyName}}</p>
+      <p id="displayCompany_url">Company url: <a href="{{company_url}}">{{company_url}}</a></p>
+      <p id="displayCompany_url_contact">Company contact url: <a href="{{company_contact_url}}">{{company_contact_url}}</a></p>
+      <p id="displayCompany_phone">Phone List: {% for phone in phoneList %} {{phone}}, {% endfor %}</p>
+      <p id="displayCompany_email">Email List: {% for email in emailList %} <a href="mailto:{{email}}">{{email}}</a>, {% endfor %}</p>
+      <p id="displayCompany_CEO">Title: {{title}}</p>
+      <p id="displayCompany_CEO_linkedin">Linkedin URL: <a href="{{linkedin_url}}">{{linkedin_url}}</a></p>
+    </div>
+    <script>
+      
+    </script>
+  </div>
+  
+  <div class="right1"></div>
+</body>
+</html>

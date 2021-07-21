@@ -1,0 +1,105 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<style>
+  table, td, tr {border: 1px solid rgb(200, 200, 200); color: rgb(200, 200, 200);}
+  .col1, .col2 {float: left;}
+  .col1 {width: max-content;}
+  input[type=text] {width: 200px; color: rgb(200, 200, 200); background-color: transparent; border: none;}
+  td, tr {height: 30px; padding: 1px;}
+  .col1 td {text-align: right;}
+  th {text-align: left;}
+  a {text-decoration: none; color: rgb(220, 220, 220);}
+  a:hover {text-decoration: underline; color: rgb(220, 220, 220);}
+</style>
+<h1>Multiple</h1>
+
+<form method="post">
+  {% csrf_token %}
+
+  <div class="col1">
+  <table>
+    <tr><th>Sr.No</th></tr>
+    {% for number in numberList %}
+    <tr>
+      <td>{{number}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  </div>
+
+  <div class="col2">
+    <table>
+    <tr><th>Enter Company Name</th></tr>
+    {% for number in romanNumberList %}
+    <tr>
+    <td><input type="text" name="companyName{{number}}" placeholder="Enter {{number}} Company Name" required></td>
+    </tr>
+    {% endfor %}
+  </table>
+  </div>
+
+  <div class="col3">
+  <table>
+    <tr><th>Company Website</th></tr>
+    {% for website in companyUrls %}
+    <tr>
+      <td><a href="{{website}}">{{website}}</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+  </div>
+
+<br>
+  <div class="col4">
+    <table>
+      <tr><th>Phones</th></tr>
+      {% for phone in phones %}
+      <tr>
+        <td>{% for num in phone %}{{num}}, {% endfor %}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+<br>
+  <div class="col5">
+    <table>
+      <tr><th>Emails</th></tr>
+      {% for email in emails %}
+      <tr>
+        <td>{% for mail in email %}{{mail}}, {% endfor %}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+<br>
+  <div class="col6" style="float: left;">
+    <table>
+      <tr><th>Titles</th></tr>
+      {% for title in titles %}
+      <tr>
+        <td>{{title}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+  
+  <div class="col7">
+    <table>
+      <tr><th>Linkedin URLs</th></tr>
+      {% for url in linkedinUrls %}
+      <tr>
+        <td><a href="{{url}}">{{url}}</a></td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+
+  <div>
+  <br><br>
+  <button name="submit" type="submit" id="submitbtn">Submit</button>
+  </div>
+</form>
+
+
+{% endblock %}

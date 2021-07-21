@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<style>
+  table, td, tr {border: 1px solid rgb(200, 200, 200);}
+  .col1, .col2, .col3, .col4, .col5, .col6, .col7 {float: left;}
+  .col1 {width: max-content;}
+  .col2, .col3, .col4, .col5, .col6, .col7 {width: 11%;}
+  input[type=text] {width: 200px;}
+  td, tr {height: 30px; padding: 1px;}
+  .col1 td {text-align: right;}
+</style>
+<h1>Multiple</h1>
+
+<form method="post">
+  {% csrf_token %}
+  <table>
+
+  
+
+
+  </table>
+</form>
+
+{% endblock %}
